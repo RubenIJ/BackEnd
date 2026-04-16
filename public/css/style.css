@@ -1,33 +1,36 @@
-/* Basis layout */
+/* ===========================
+   Reset & Base
+=========================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: #f9fafb;
     color: #111827;
-    font-family: sans-serif;
-    margin: 0;
     line-height: 1.5;
 }
 
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem;
-}
-
-/* Navigatie */
+/* ===========================
+   Navbar
+=========================== */
 .navbar {
-    background-color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    padding: 1rem 1.5rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .nav-brand {
-    font-size: 1.5rem;
-    font-weight: 800;
-    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 700;
     color: #1f2937;
+    text-decoration: none;
 }
 
 .nav-links {
@@ -36,106 +39,284 @@ body {
 }
 
 .nav-link {
+    color: #6b7280;
     text-decoration: none;
-    color: #4b5563;
-    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.15s ease;
+}
+
+.nav-link:hover {
+    color: #1f2937;
 }
 
 .nav-link.active {
-    color: #2563eb;
-}
-
-/* Knoppen */
-.btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.75rem;
-    font-weight: bold;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.btn-blue {
-    background-color: #2563eb;
-    color: white;
-}
-
-.btn-gray {
-    background-color: #e5e7eb;
-    color: #374151;
-}
-
-.btn-yellow {
-    background-color: #fef08a;
-    color: #854d0e;
-    padding: 0.4rem 1rem;
-    font-size: 0.875rem;
-}
-
-.btn-red {
-    background-color: #fee2e2;
-    color: #b91c1c;
-    padding: 0.4rem 1rem;
-    font-size: 0.875rem;
-}
-
-/* Kaarten (Menu/Berichten) */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
-
-.card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 1rem;
-    border: 1px solid #f3f4f6;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.price-badge {
-    background: #dcfce7;
-    color: #15803d;
-    padding: 0.25rem 0.75rem;
-    border-radius: 999px;
-    font-weight: bold;
-}
-
-/* Formulieren */
-.form-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    border: 1px solid #f3f4f6;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.label {
-    display: block;
-    margin-bottom: 0.5rem;
+    color: #1d4ed8;
     font-weight: 600;
-    font-size: 0.9rem;
 }
 
-.input {
-    width: 100%;
-    padding: 0.6rem 1rem;
-    border: 1px solid #d1d5db;
-    border-radius: 0.75rem;
-    box-sizing: border-box;
+/* ===========================
+   Layout
+=========================== */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
 }
 
 footer {
     text-align: center;
+    padding: 2rem;
     color: #9ca3af;
     font-size: 0.875rem;
-    padding: 2rem 0;
-    margin-top: 3rem;
     border-top: 1px solid #e5e7eb;
+    margin-top: 4rem;
+}
+
+/* ===========================
+   Grid
+=========================== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* ===========================
+   Card
+=========================== */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.card--empty {
+    text-align: center;
+    padding: 4rem;
+    color: #9ca3af;
+    font-size: 1.1rem;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.card-header h2,
+.card-header h3 {
+    font-size: 1.25rem;
+    color: #1f2937;
+}
+
+.card-body {
+    margin-top: 1rem;
+    color: #4b5563;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.card-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 10px;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-meta strong {
+    display: block;
+}
+
+.card-meta small {
+    color: #6b7280;
+}
+
+.card-meta time {
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+
+.card-message {
+    color: #374151;
+    white-space: pre-line;
+}
+
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* ===========================
+   Price Badge
+=========================== */
+.price-badge {
+    background-color: #dcfce7;
+    color: #15803d;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    white-space: nowrap;
+}
+
+/* ===========================
+   Form Card
+=========================== */
+.form-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-card--login {
+    max-width: 400px;
+    margin: 5rem auto 0;
+}
+
+.form-title {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* ===========================
+   Form Elements
+=========================== */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.4rem;
+}
+
+.input {
+    width: 100%;
+    padding: 0.6rem 0.875rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    color: #1f2937;
+    background-color: #ffffff;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+textarea.input {
+    resize: vertical;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1.1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.15s ease, filter 0.15s ease;
+}
+
+.btn:hover {
+    filter: brightness(0.92);
+}
+
+.btn-blue   { background-color: #2563eb; color: #ffffff; }
+.btn-red    { background-color: #fecaca; color: #b91c1c; }
+.btn-gray   { background-color: #e5e7eb; color: #374151; }
+.btn-yellow { background-color: #fde68a; color: #92400e; }
+
+.btn--full {
+    width: 100%;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* ===========================
+   Alerts
+=========================== */
+.alert-success {
+    background-color: #dcfce7;
+    color: #15803d;
+    padding: 0.875rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.alert-error {
+    display: block;
+    background-color: #fee2e2;
+    color: #b91c1c;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+}
+
+/* ===========================
+   Page Header
+=========================== */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f3f4f6;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+}
+
+.page-header p {
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+
+.page-subtitle {
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.page-nav-title {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
 }

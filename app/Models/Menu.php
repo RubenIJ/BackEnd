@@ -9,4 +9,5 @@ class Menu extends Model
     protected $table = 'products';
 
     protected $fillable = ['name', 'description', 'price'];
+    protected $casts = ['price' => 'float'];
 }
